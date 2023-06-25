@@ -584,6 +584,16 @@ class Metric(SimpleClass):
         return self.all_ap[:, 0].mean() if len(self.all_ap) else 0.0
 
     @property
+    def map60(self):
+        """
+        Returns the mean Average Precision (mAP) at an IoU threshold of 0.5.
+
+        Returns:
+            (float): The mAP50 at an IoU threshold of 0.5.
+        """
+        return self.all_ap[:, 2].mean() if len(self.all_ap) else 0.0
+
+    @property
     def map75(self):
         """
         Returns the mean Average Precision (mAP) at an IoU threshold of 0.75.
